@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+
+type Currencies = "PLN" | "EUR" | "USD";
+interface ILocation {
+  name: string;
+  lat: number;
+  lon: number;
+}
+interface IPlace {
+  id: string;
+  name: string;
+  location: ILocation;
+  price: number;
+  currency: Currencies;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [places, setPlaces] = useState<IPlace[]>([]);
+
+  const fetchPlaces = async () => {
+    const res = await fetch("/api/places");
+    if (!res.ok) {
+      console.error("Failed to fetch available places, check your internet connection or fix bugs :)");
+      return;
+    }
+    const places: IPlace[] = await res.json();
+    setPlaces(places);
+  };
+
+  useEffect(() => {
+    fetchPlaces();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {places.map(({ id, name, location, price, currency }) => (
+        <div key={id}>
+          <h3>{name}</h3>
+          <div>adres: {location.name}</div>
+          <div>cena: {price + currency}</div>
+        </div>
+      ))}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
