@@ -18,7 +18,7 @@ function App() {
   const [places, setPlaces] = useState<IPlace[]>([]);
 
   const fetchPlaces = async () => {
-    const res = await fetch("/api/places");
+    const res = await fetch("/api/places/getAll");
     if (!res.ok) {
       console.error("Failed to fetch available places, check your internet connection or fix bugs :)");
       return;
