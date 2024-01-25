@@ -1,0 +1,2 @@
+## Get list of all amenities
+GET http://localhost:3050/api/amenities

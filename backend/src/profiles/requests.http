@@ -1,0 +1,2 @@
+## Get profile by id
+GET http://localhost:3050/api/profiles?id=2

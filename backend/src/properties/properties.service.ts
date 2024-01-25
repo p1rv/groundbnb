@@ -1,0 +1,60 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Properties } from './properties.entity';
+import { Like, Repository } from 'typeorm';
+import { Users } from '../users/users.entity';
+
+@Injectable()
+export class PropertiesService {
+  constructor(
+    @InjectRepository(Properties) private repo: Repository<Properties>,
+  ) {}
+
+  create(
+    owner: Users,
+    name: string,
+    description: string,
+    postal: string,
+    city: string,
+    street: string | null,
+    building_no: string,
+    flat_no: string | null,
+    rooms: number,
+    area: number,
+    kitchen: boolean,
+    imgs: string[],
+  ) {
+    const property = this.repo.create({
+      user: owner,
+      name,
+      description,
+      postal,
+      city,
+      street,
+      building_no,
+      flat_no,
+      rooms,
+      area,
+      kitchen,
+      imgs,
+    });
+
+    return this.repo.save(property);
+  }
+
+  findOne(id: number) {
+    if (!id) return null;
+
+    return this.repo.findOneBy({ id });
+  }
+
+  find(name: string) {
+    return this.repo.findBy({ name: Like(name) });
+  }
+
+  getAll() {
+    return this.repo.find({
+      relations: ['user', 'amenities', 'reviews', 'bookings'],
+    });
+  }
+}

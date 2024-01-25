@@ -1,0 +1,2 @@
+## Get list of all properties
+GET http://localhost:3050/api/properties

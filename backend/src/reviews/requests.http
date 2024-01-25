@@ -1,0 +1,2 @@
+## Get specified review
+GET http://localhost:3050/api/reviews/1
