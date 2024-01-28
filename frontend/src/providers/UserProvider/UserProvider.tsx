@@ -29,6 +29,7 @@ const UserProvider: React.FC = () => {
 
       localStorage.setItem("nick", data.username);
       setUser(data.username);
+      setIsLoading(false);
     } catch (err) {
       console.log(err.response);
       stay ? setIsLoading(false) : signout();

@@ -15,12 +15,6 @@ export class BookingsController {
   constructor(private bookingsService: BookingsService) {}
 
   @UseGuards(AuthGuard)
-  @Get()
-  getMyBookings(@Request() req) {
-    return this.bookingsService.getUserBookings(req.user.sub);
-  }
-
-  @UseGuards(AuthGuard)
   @Post('/submit')
   submitBooking(@Request() req, @Body() data: SubmitBookingDto) {
     return this.bookingsService.submitUserBooking(
@@ -30,5 +24,11 @@ export class BookingsController {
       data.checkIn,
       data.checkOut,
     );
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('/me')
+  getMyBookings(@Request() req) {
+    return this.bookingsService.getUserBookings(req.user.sub);
   }
 }

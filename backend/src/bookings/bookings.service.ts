@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Bookings } from './bookings.entity';
 import { Repository } from 'typeorm';
@@ -9,15 +9,27 @@ import { PropertiesService } from 'src/properties/properties.service';
 export class BookingsService {
   constructor(
     @InjectRepository(Bookings) private repo: Repository<Bookings>,
-    @Inject(UsersService) private readonly usersService: UsersService,
-    @Inject(PropertiesService)
+    private readonly usersService: UsersService,
+
     private readonly propertiesService: PropertiesService,
   ) {}
 
   async getUserBookings(id: number) {
     return this.repo.find({
       where: { user: { id } },
-      relations: ['user'],
+      relations: ['property'],
+      select: {
+        id: true,
+        check_in: true,
+        check_out: true,
+        status: true,
+        total_price: true,
+        property: {
+          id: true,
+          name: true,
+          city: true,
+        },
+      },
     });
   }
 
@@ -25,19 +37,21 @@ export class BookingsService {
     propertyId: number,
     userId: number,
     total: number,
-    checkIn: number,
-    checkOut: number,
+    checkIn: string,
+    checkOut: string,
   ) {
     const user = await this.usersService.findOne(userId);
     const property = await this.propertiesService.findOne(propertyId);
 
     const booking = this.repo.create({
-      user: user.id,
+      user,
       property,
       check_in: checkIn,
       check_out: checkOut,
       total_price: total,
       status: 0,
     });
+
+    return this.repo.save(booking);
   }
 }

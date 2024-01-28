@@ -1,7 +1,53 @@
 import { Expose, Type } from 'class-transformer';
-import { UserDto } from '../../users/dtos/user.dto';
+
+class PropertyDto {
+  @Expose()
+  id: number;
+
+  @Expose()
+  name: string;
+
+  @Expose()
+  city: string;
+
+  @Expose()
+  price: number;
+
+  @Expose()
+  imgs: string[];
+}
+class BookingsDto {
+  @Expose()
+  id: number;
+
+  @Expose()
+  @Type(() => PropertyDto)
+  property: PropertyDto;
+
+  @Expose()
+  check_in: string;
+
+  @Expose()
+  check_out: string;
+
+  @Expose()
+  total_price: number;
+
+  @Expose()
+  status: number;
+}
+class UserProfileDto {
+  @Expose()
+  nick: string;
+
+  @Expose()
+  email: string;
+}
 
 export class ProfileInfoDto {
+  @Expose()
+  id: number;
+
   @Expose()
   name: string;
 
@@ -30,6 +76,6 @@ export class ProfileInfoDto {
   phone: string;
 
   @Expose()
-  @Type(() => UserDto)
-  user: UserDto;
+  @Type(() => UserProfileDto)
+  user: UserProfileDto;
 }

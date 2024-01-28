@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 
 interface IPropertyProps {
   property: PropertyType;
-  book: (propertyId: number, total: number, checkIn: number, checkOut: number) => void;
+  book: (propertyId: number, total: number, checkIn: string, checkOut: string) => void;
 }
 
 const Property: React.FC<IPropertyProps> = ({ book, property }) => {
@@ -147,8 +147,8 @@ const Property: React.FC<IPropertyProps> = ({ book, property }) => {
                   book(
                     property.id,
                     people * days * property.price * 0.01 + people * days * property.price,
-                    checkIn!.getTime(),
-                    checkOut!.getTime()
+                    checkIn!.toISOString(),
+                    checkOut!.toISOString()
                   )
                 }
                 fill
