@@ -22,7 +22,7 @@ const PropertyPage: React.FC = () => {
     try {
       const { status } = await api.post("/bookings/submit", { propertyId, total, checkIn, checkOut });
       if (status === 201) {
-        navigate("/profile");
+        navigate("/profile/bookings");
       }
     } catch (err) {
       navigate("/login");
