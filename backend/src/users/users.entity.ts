@@ -24,6 +24,9 @@ export class Users {
   @Column()
   nick: string;
 
+  @Column()
+  role: number;
+
   @OneToMany(() => Properties, (property) => property.user)
   properties: Properties[];
 

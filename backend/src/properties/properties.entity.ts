@@ -50,6 +50,9 @@ export class Properties {
   @Column()
   kitchen: boolean;
 
+  @Column()
+  price: number;
+
   @Column('simple-array', { nullable: false })
   imgs: string[];
 

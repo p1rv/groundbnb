@@ -10,4 +10,8 @@ export class ProfilesService {
   findById(id: number) {
     return this.repo.findOneBy({ user: { id } });
   }
+
+  getUserInfo(id: number) {
+    return this.repo.findOne({ where: { id }, relations: ['user'] });
+  }
 }

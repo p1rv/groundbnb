@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { PropertiesService } from './properties.service';
 
 @Controller('properties')
@@ -7,7 +7,12 @@ export class PropertiesController {
   constructor(private propertiesService: PropertiesService) {}
 
   @Get()
-  getAllProperties() {
-    return this.propertiesService.getAll();
+  getAllProperties(@Query() query) {
+    return this.propertiesService.getAll(query);
+  }
+
+  @Get('/:id')
+  getOne(@Param() { id }) {
+    return this.propertiesService.getOne(parseInt(id));
   }
 }

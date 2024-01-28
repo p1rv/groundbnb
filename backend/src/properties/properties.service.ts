@@ -52,9 +52,57 @@ export class PropertiesService {
     return this.repo.findBy({ name: Like(name) });
   }
 
-  getAll() {
-    return this.repo.find({
-      relations: ['user', 'amenities', 'reviews', 'bookings'],
+  getAll(query) {
+    if (!query || !query.search) {
+      return this.repo
+        .createQueryBuilder('property')
+        .leftJoinAndSelect('property.reviews', 'review')
+        .select('property.*')
+        .addSelect('AVG(review.rating)', 'averageRating')
+        .groupBy('property.id')
+        .getRawMany();
+    }
+
+    const { search } = query;
+    return this.repo
+      .createQueryBuilder('property')
+      .leftJoinAndSelect('property.reviews', 'review')
+      .select('property.*')
+      .addSelect('AVG(review.rating)', 'averageRating')
+      .where(`property.name ILIKE '%${search}%'`)
+      .orWhere(`property.city ILIKE '%${search}%'`)
+      .orWhere(`property.street ILIKE '%${search}%'`)
+      .orWhere(`property.postal ILIKE '%${search}%'`)
+      .orWhere(`property.description ILIKE '%${search}%'`)
+      .groupBy('property.id')
+      .getRawMany();
+  }
+
+  getOne(id: number) {
+    return this.repo.findOne({
+      where: { id },
+      relations: ['user', 'reviews', 'reviews.user', 'amenities', 'bookings'],
+      select: {
+        reviews: {
+          id: true,
+          rating: true,
+          user: { nick: true },
+          submitted: true,
+          content: true,
+        },
+        bookings: {
+          id: true,
+          check_in: true,
+          check_out: true,
+        },
+        amenities: {
+          id: true,
+          name: true,
+        },
+        user: {
+          nick: true,
+        },
+      },
     });
   }
 }

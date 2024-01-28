@@ -7,8 +7,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class UsersService {
   constructor(@InjectRepository(Users) private repo: Repository<Users>) {}
 
-  create(email: string, password: string, nick: string) {
-    const user = this.repo.create({ email, password, nick });
+  create(nick: string, email: string, password: string) {
+    const user = this.repo.create({ nick, email, password, role: 0 });
 
     return this.repo.save(user);
   }
@@ -22,7 +22,12 @@ export class UsersService {
   find(email: string) {
     return this.repo.find({
       where: { email },
-      relations: ['userProfile', 'properties', 'properties.amenities'],
+      relations: [
+        'userProfile',
+        'properties',
+        'properties.amenities',
+        'properties.reviews',
+      ],
     });
   }
 }

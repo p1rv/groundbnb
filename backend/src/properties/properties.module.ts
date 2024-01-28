@@ -8,5 +8,6 @@ import { Properties } from './properties.entity';
   imports: [TypeOrmModule.forFeature([Properties])],
   controllers: [PropertiesController],
   providers: [PropertiesService],
+  exports: [PropertiesService],
 })
 export class PropertiesModule {}

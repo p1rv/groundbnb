@@ -1,15 +1,8 @@
-import { useEffect } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { router } from "./router/paths";
 
 function App() {
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/", { method: "GET" });
-      const json = await res.json();
-      console.log(json);
-    })();
-  }, []);
-
-  return <div style={{ fontSize: 150, transform: "matrix(1, 0, 0, 1, 0, 0)" }}>test</div>;
+  return <RouterProvider router={createBrowserRouter(router)} />;
 }
 
 export default App;
