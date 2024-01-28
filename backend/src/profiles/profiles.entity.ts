@@ -39,10 +39,7 @@ export class Profiles {
   @Column()
   phone: string;
 
-  @Column()
-  userId: number;
-
   @OneToOne(() => Users, (user) => user.userProfile)
-  @JoinColumn()
+  @JoinColumn({ name: 'id' })
   user: Users;
 }

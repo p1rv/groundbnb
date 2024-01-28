@@ -18,9 +18,12 @@ const PropertyPage: React.FC = () => {
     })();
   }, []);
 
-  const book = async (propertyId: number, total: number, checkIn: number, checkOut: number) => {
+  const book = async (propertyId: number, total: number, checkIn: string, checkOut: string) => {
     try {
-      const { data } = await api.post("/bookings/submit", { propertyId, total, checkIn, checkOut });
+      const { status } = await api.post("/bookings/submit", { propertyId, total, checkIn, checkOut });
+      if (status === 201) {
+        navigate("/profile");
+      }
     } catch (err) {
       navigate("/login");
     }

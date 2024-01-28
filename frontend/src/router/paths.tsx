@@ -1,6 +1,7 @@
 import DashboardPage from "../pages/Dashboard";
 import LoginPage from "../pages/Login";
 import ProfilePage from "../pages/Profile";
+import ProfileBookingsPage from "../pages/ProfileBookings/ProfileBookings.container";
 import PropertyPage from "../pages/Property/Property.container";
 import RegisterPage from "../pages/Register/Register.container";
 import UserProvider from "../providers/UserProvider";
@@ -34,6 +35,10 @@ export const router = [
           {
             path: "/profile",
             element: <ProfilePage />,
+          },
+          {
+            path: "/profile/bookings",
+            element: <ProfileBookingsPage />,
           },
         ],
       },

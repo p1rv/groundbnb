@@ -1,4 +1,4 @@
-import { IsNumber } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
 export class SubmitBookingDto {
   @IsNumber()
@@ -7,9 +7,9 @@ export class SubmitBookingDto {
   @IsNumber()
   total: number;
 
-  @IsNumber()
-  checkIn: number;
+  @IsString()
+  checkIn: string;
 
-  @IsNumber()
-  checkOut: number;
+  @IsString()
+  checkOut: string;
 }

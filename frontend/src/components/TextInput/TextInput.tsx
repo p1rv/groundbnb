@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 
 interface ITextInput {
   name: string;
-  value: string | number;
+  value: string | number | Date | null;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   touched?: boolean;
