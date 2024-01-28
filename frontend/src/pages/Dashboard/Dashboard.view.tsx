@@ -13,7 +13,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ properties }) => {
   return (
     <div className="font-nunito bg-blueWhite">
       <Header />
-      <div className="columns-2 gap-8 p-8 [&>div]:mb-8">
+      <div className="columns-2 gap-8 p-8 md:columns-1 [&>div]:mb-8">
         {properties
           .sort((a, b) => a.id - b.id)
           .map((property) => (

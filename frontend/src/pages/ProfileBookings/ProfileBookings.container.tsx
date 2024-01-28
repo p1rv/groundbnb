@@ -37,11 +37,11 @@ const ProfileBookingsPage: React.FC = () => {
   };
 
   const redirectToBookings = () => {
-    navigate("bookings");
+    navigate("/profile/bookings");
   };
 
   const redirectToProperties = () => {
-    navigate("properties");
+    navigate("/profile/properties");
   };
 
   const signOut = () => {

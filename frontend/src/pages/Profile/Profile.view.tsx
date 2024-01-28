@@ -20,8 +20,8 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
   }
 
   return (
-    <div className="flex w-[80%] mx-auto gap-x-8 items-start">
-      <div className="flex-[1_1_20%] flex flex-col gap-y-4 p-8 shadow-[0_0_60px_-40px_#2e4e6e] rounded-[20px] items-center max-h-min">
+    <div className="flex md:flex-col w-[80%] mx-auto gap-x-8 items-start">
+      <div className="flex-[1_1_20%] md:w-full flex flex-col gap-y-4 p-8 shadow-[0_0_60px_-40px_#2e4e6e] rounded-[20px] items-center max-h-min">
         <Button
           className="w-full"
           onClick={redirectToBookings}
@@ -57,7 +57,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
         >
           {({ values, handleChange, touched, errors }) => (
             <Form className="flex flex-col justify-center gap-y-2 w-full">
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="name"
@@ -75,7 +75,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.name}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="surname"
@@ -93,7 +93,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.surname}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="dob"
@@ -111,7 +111,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.dob}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="postal"
@@ -129,7 +129,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.postal}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="city"
@@ -147,7 +147,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.city}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="building_no"
@@ -165,7 +165,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.building_no}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="flat_no"
@@ -183,7 +183,7 @@ const Profile: React.FC<PropsWithChildren<IProfileProps>> = ({ data, onSubmit, r
                   touched={touched.flat_no}
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-col justify-between items-center">
                 <label
                   className="flex-1"
                   for="phone"

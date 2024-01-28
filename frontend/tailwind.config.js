@@ -13,6 +13,9 @@ export default {
         nunito: ["Nunito", "sans-serif"],
       },
     },
+    screens: {
+      md: { max: "1023px" },
+    },
   },
   plugins: [],
 };

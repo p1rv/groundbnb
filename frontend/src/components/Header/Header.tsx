@@ -18,9 +18,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center p-4 px-8">
+    <div className="flex items-center p-4 px-8 md:flex-col md:gap-y-2">
       <div className="flex-[1_1_25%] text-6xl text-blue flex items-center justify-start">groundbnb</div>
-      <div className="flex-[2_2_50%] bg-blueLight rounded-full py-2 px-4 group focus-within:shadow-[0_0_60px_-20px_#2E4E6E80] transition-color duration-200">
+      <div className="flex-[2_2_50%] bg-blueLight rounded-full py-2 px-4 group focus-within:shadow-[0_0_60px_-20px_#2E4E6E80] transition-color duration-200 md:order-[3]">
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}

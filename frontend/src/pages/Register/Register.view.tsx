@@ -16,9 +16,9 @@ const Register: React.FC<PropsWithChildren<IRegisterProps>> = ({ onSubmit, redir
   return (
     <div
       style={{ backgroundImage: `url('background.jpg')` }}
-      className="flex min-h-[100vh] font-nunito"
+      className="flex min-h-[100vh] font-nunito md:flex-col"
     >
-      <div className="flex flex-1 text-blue text-8xl justify-center items-center">
+      <div className="md:text-3xl flex flex-1 md:flex-[1_0_5vh] text-blue text-8xl justify-center items-center">
         <span>groundbnb</span>
       </div>
       <Formik
@@ -31,8 +31,8 @@ const Register: React.FC<PropsWithChildren<IRegisterProps>> = ({ onSubmit, redir
         })}
       >
         {({ values, handleChange, touched, errors }) => (
-          <div className="flex-1 bg-blue flex justify-center items-center">
-            <Form className="bg-blueWhite flex flex-col justify-center items-center p-12 gap-y-4 rounded-[20px]">
+          <div className="md:flex-[9_9_95vh] flex-1 bg-blue flex justify-center items-center">
+            <Form className="bg-blueWhite flex flex-col justify-center items-center p-12 gap-y-4 rounded-[20px] md:p-4">
               <div className="flex flex-col gap-y-10 mb-6">
                 {error && <div>{error}</div>}
                 <TextInput

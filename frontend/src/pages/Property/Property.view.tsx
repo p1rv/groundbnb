@@ -37,7 +37,7 @@ const Property: React.FC<IPropertyProps> = ({ book, property }) => {
   }
 
   return (
-    <div className="flex w-[80%] items-start justify-center mx-auto gap-x-8">
+    <div className="md:flex-col flex w-[80%] items-start justify-center mx-auto gap-x-8">
       <div className="flex-1 flex flex-col">
         <img
           src={property.imgs[0]}
@@ -71,7 +71,7 @@ const Property: React.FC<IPropertyProps> = ({ book, property }) => {
             </div>
           )}
         </div>
-        <div className="flex gap-x-4">
+        <div className="flex md:flex-col gap-x-4">
           <div className="flex-1 flex flex-col gap-y-4">
             <div className="flex flex-col gap-y-4">
               <div>
@@ -159,6 +159,21 @@ const Property: React.FC<IPropertyProps> = ({ book, property }) => {
             )}
           </div>
         </div>
+        {property.amenities.length > 0 && (
+          <div className="flex flex-col items-start justify-start shadow-[0_0_60px_-40px_#2E4E6E] rounded-[20px] p-4">
+            <div className="text-xl mb-4">Amenities: </div>
+            <div className="flex flex-wrap w-full gap-x-4 gap-y-4">
+              {property.amenities.map((amenity) => (
+                <div
+                  key={amenity.id}
+                  className="flex-[1_0_40%]"
+                >
+                  {amenity.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="flex flex-col">
           <div className="text-xl mb-2">Reviews</div>
           {property.reviews.length > 0 ? (

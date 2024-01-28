@@ -69,6 +69,7 @@ export class PropertiesService {
       .leftJoinAndSelect('property.reviews', 'review')
       .select('property.*')
       .addSelect('AVG(review.rating)', 'averageRating')
+      .addSelect('AVG(review.rating)', 'averageRating')
       .where(`property.name ILIKE '%${search}%'`)
       .orWhere(`property.city ILIKE '%${search}%'`)
       .orWhere(`property.street ILIKE '%${search}%'`)
@@ -103,6 +104,13 @@ export class PropertiesService {
           nick: true,
         },
       },
+    });
+  }
+
+  getUserProperties(id: number) {
+    return this.repo.find({
+      where: { user: { id } },
+      relations: ['user', 'amenities'],
     });
   }
 }

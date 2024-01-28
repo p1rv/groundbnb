@@ -12,7 +12,7 @@ const Review: React.FC<IReview> = ({ review }) => {
     <div className="flex rounded-[20px] shadow-[0_0_60px_-30px_#2E4E6E] p-4 gap-x-4">
       <UserLogo className="stroke-blue min-w-8 max-w-8 h-8 border-2 border-blue rounded-full" />
       <div className="flex flex-col gap-y-4">
-        <div className="flex justify-between">
+        <div className="flex justify-between md:flex-col">
           <div className="flex flex-col">
             <div className="text-m">{review.user.nick}</div>
             <div className="text-xs text-blue/80">{new Date(review.submitted).toLocaleDateString("pl-PL")} r.</div>

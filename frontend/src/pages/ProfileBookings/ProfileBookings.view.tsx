@@ -11,8 +11,8 @@ interface IProfileProps {
 
 const ProfileBookings: React.FC<PropsWithChildren<IProfileProps>> = ({ data, redirectToBookings, redirectToProperties, signout }) => {
   return (
-    <div className="flex w-[80%] mx-auto gap-x-8 items-start">
-      <div className="flex-[1_1_20%] flex flex-col gap-y-4 p-8 shadow-[0_0_60px_-40px_#2e4e6e] rounded-[20px] items-center max-h-min">
+    <div className="flex md:flex-col w-[80%] mx-auto gap-x-8 items-start">
+      <div className="flex-[1_1_20%] md:w-full flex flex-col gap-y-4 p-8 shadow-[0_0_60px_-40px_#2e4e6e] rounded-[20px] items-center max-h-min">
         <Button
           className="w-full"
           onClick={redirectToBookings}
@@ -37,29 +37,29 @@ const ProfileBookings: React.FC<PropsWithChildren<IProfileProps>> = ({ data, red
         {data.map((booking) => (
           <div
             key={booking.id}
-            className="bg-white shadow-[0_0_60px_-30px_#2e4e6e80] rounded-[20px] p-4 flex flex-row gap-y-4 justify-between rounded-[20px]"
+            className="bg-white shadow-[0_0_60px_-30px_#2e4e6e80] rounded-[20px] p-4 flex flex-row md:flex-col gap-y-4 justify-between rounded-[20px]"
           >
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col md:flex-row">
               <div className="flex-1">City</div>
               <div className="flex-1 font-bold">{booking.property.city}</div>
             </div>
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col md:flex-row">
               <div className="flex-1">Name</div>
               <div className="flex-1 font-bold">{booking.property.name}</div>
             </div>
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col md:flex-row">
               <div className="flex-1">Check In</div>
               <div className="flex-1 font-bold">{new Date(booking.check_in).toLocaleDateString("pl-PL")}</div>
             </div>
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col md:flex-row">
               <div className="flex-1">Check Out</div>
               <div className="flex-1 font-bold">{new Date(booking.check_out).toLocaleDateString("pl-PL")}</div>
             </div>
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col md:flex-row">
               <div className="flex-1">Total</div>
               <div className="flex-1 font-bold">{booking.total_price} EUR</div>
             </div>
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col md:flex-row">
               <div className="flex-1">Status</div>
               <div className="flex-1 font-bold">
                 {booking.status === 0
