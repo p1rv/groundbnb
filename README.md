@@ -7,7 +7,7 @@ This repository contains a full-stack web application inspired by Airbnb, with f
 - ## Authentication <br>
 
   - desktop:<br>
-    <img src="data/desktop_register.png" alt="Desktop Register" height="500" style="object-fit: scale-down"/>
+    <img src="data/desktop_register.png" alt="Desktop Register" height="400" style="object-fit: scale-down"/>
   - mobile:<br>
     <img src="data/mobile_login.png" alt="Mobile Login" height="500" style="object-fit: scale-down"/> <br>
 
@@ -33,7 +33,7 @@ This repository contains a full-stack web application inspired by Airbnb, with f
 - ## Property data <br>
 
   - desktop:<br>
-    <img src="data/desktop_property.png" alt="Desktop Property" height="500" style="object-fit: scale-down"/>
+    <img src="data/desktop_property.png" alt="Desktop Property" height="400" style="object-fit: scale-down"/>
   - mobile:<br>
     <img src="data/mobile_property.png" alt="Mobile Property" height="500" style="object-fit: scale-down"/> <br>
 
@@ -47,9 +47,9 @@ This repository contains a full-stack web application inspired by Airbnb, with f
 - ## Profile info <br>
 
   - desktop:<br>
-    <img src="data/desktop-profile.png" alt="Desktop Profile" height="450" style="object-fit: scale-down"/><br>
-    <img src="data/desktop-bookings.png" alt="Desktop Bookings" height="450" style="object-fit: scale-down"/><br>
-    <img src="data/desktop-owned-properties.png" alt="Desktop Owned Properties" height="450" style="object-fit: scale-down"/>
+    <img src="data/desktop-profile.png" alt="Desktop Profile" height="400" style="object-fit: scale-down"/><br>
+    <img src="data/desktop-bookings.png" alt="Desktop Bookings" height="400" style="object-fit: scale-down"/><br>
+    <img src="data/desktop-owned-properties.png" alt="Desktop Owned Properties" height="400" style="object-fit: scale-down"/>
   - mobile:<br>
     <img src="data/mobile-profile.png" alt="Mobile Profile" height="500" style="object-fit: scale-down"/>
     <img src="data/mobile-bookings.png" alt="Mobile Bookings" height="500" style="object-fit: scale-down"/>
